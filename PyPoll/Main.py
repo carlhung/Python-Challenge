@@ -2,7 +2,7 @@
 import os, csv
 
 # Declare file path
-pypoll = os.path.join("..", "Resources", "budget_data.csv")
+pypoll = os.path.join("..", "PyPoll", "Resources", "budget_data.csv")
 
 pypoll = r'C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homework - Assignment\Python-Challenge\PyPoll\Resources\election_data.csv'
 
@@ -66,7 +66,7 @@ print(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
 # Output files
 # Assign output file location and with the pathlib library
-output_file = ("Python-Challenge", "PyPoll", "Summary.txt")
+output_file = os.path.join("..", "Python-Challenge", "PyPoll", "Summary.txt")
 
 output_file = r"C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homework - Assignment\Python-Challenge\PyPoll\Summary.txt"
 
