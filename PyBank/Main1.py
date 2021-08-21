@@ -30,11 +30,11 @@ with open(pybank) as csv_file:
         # Take the difference between two months and append to the related list
         monthlychange.append(profit[i+1]-profit[i])
       
-# Capture the max increase and man decrease of the the monthly profit
+# Capture the max increase(Max) and max decrease(Min) of the the monthly profit
 maxincrease = max(monthlychange)
 maxdecrease = min(monthlychange)
 
-# Correlate max and min to the proper month using month list and index from max and min
+# Correlate max and min to the proper month using month list and index from Max and Min
 # Put plus 1 at the end because month associated with change is the next month
 maxincreasemonth = monthlychange.index(max(monthlychange)) + 1
 maxdecreasemonth = monthlychange.index(min(monthlychange)) + 1 
@@ -53,17 +53,11 @@ output_file = Path(r'C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\H
 
 with open(output_file,"w") as file:
     
-# Write methods to print to Financial_Analysis_Summary 
-    file.write("Financial Analysis")
-    file.write("\n")
-    file.write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-    file.write("\n")
-    file.write(f"Total Months: {len(monthscount)}")
-    file.write("\n")
-    file.write(f"Total: ${sum(profit)}")
-    file.write("\n")
-    file.write(f"Average Change: {round(sum(monthlychange)/len(monthlychange),2)}")
-    file.write("\n")
-    file.write(f"Greatest Increase in Profits: {monthscount[maxincreasemonth]} (${(str(maxincrease))})")
-    file.write("\n")
-    file.write(f"Greatest Decrease in Profits: {monthscount[maxdecreasemonth]} (${(str(maxdecrease))})")
+    # Write methods to print to Financial Analysis Summary 
+    file.write("Financial Analysis\n")
+    file.write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+    file.write(f"Total Months: {len(monthscount)}\n")
+    file.write(f"Total: ${sum(profit)}\n")
+    file.write(f"Average Change: {round(sum(monthlychange)/len(monthlychange),2)}\n")
+    file.write(f"Greatest Increase in Profits: {monthscount[maxincreasemonth]} (${(str(maxincrease))})\n")
+    file.write(f"Greatest Decrease in Profits: {monthscount[maxdecreasemonth]} (${(str(maxdecrease))})\n")

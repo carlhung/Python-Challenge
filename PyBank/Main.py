@@ -1,7 +1,6 @@
 import os,csv
-from pathlib import Path
 
-pybank = os.path.join("..", "Resources", "budget_data.csv")
+pybank = os.path.join("PyBank", "Resources", "budget_data.csv")
 
 pybank = r'C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homework - Assignment\Python-Challenge\PyBank\Resources\budget_data.csv'
 
@@ -65,22 +64,18 @@ with open(pybank) as csv_file:
     print(f"Greatest Increase in Profits: {monthslist[maxincreasemonth]} (${(str(maxincrease))})")
     print(f"Greatest Decrease in Profits: {monthslist[maxdecreasemonth]} (${(str(maxdecrease))})")
 
+# Set output file path
+output_file = os.path.join("Python-Challenge", "PyBank", "Summary.txt")
 
-output_file = Path(r'C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homework - Assignment\Python-Challenge\PyBank\Summary.txt')
+output_file = r'C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homework - Assignment\Python-Challenge\PyBank\Summary.txt'
 
 with open(output_file,"w") as file:
     
     # Write methods to print to Summary 
-    file.write(f"Financial Analysis")
-    file.write("\n")
-    file.write(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-    file.write("\n")
-    file.write(f"Total Months: {(totalmonths)}")
-    file.write("\n")
-    file.write(f"Total: ${profit}")
-    file.write("\n")
-    file.write(f"Average Change: {round(averageprofit,2)}")
-    file.write("\n")
-    file.write(f"Greatest Increase in Profits: {monthslist[maxincreasemonth]} (${(str(maxincrease))})")
-    file.write("\n")
-    file.write(f"Greatest Decrease in Profits: {monthslist[maxdecreasemonth]} (${(str(maxdecrease))})")
+    file.write(f"Financial Analysis\n")
+    file.write(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+    file.write(f"Total Months: {(totalmonths)}\n")
+    file.write(f"Total: ${profit}\n")
+    file.write(f"Average Change: {round(averageprofit,2)}\n")
+    file.write(f"Greatest Increase in Profits: {monthslist[maxincreasemonth]} (${(str(maxincrease))})\n")
+    file.write(f"Greatest Decrease in Profits: {monthslist[maxdecreasemonth]} (${(str(maxdecrease))})\n")
