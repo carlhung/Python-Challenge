@@ -2,7 +2,7 @@
 import os, csv
 from itertools import zip_longest
 
-# Input file path 
+# Set input file path 
 employeedata = os.path.join("Python-challenge", "PyBoss", "employee_data.csv")
 employeedata = r'C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homework - Assignment\Python-Challenge\PyBoss\employee_data.csv'
 
@@ -17,7 +17,7 @@ ssn = []
 hiddenssn = []
 stateabbrev = []
 
-# Dictionary containing states names as keys and abbreviations as values (provided) 
+# Make a dictionary with states names as keys and abbreviations as values 
 usstateabbrev = {
     'Alabama': 'AL',
     'Alaska': 'AK',
@@ -75,44 +75,44 @@ usstateabbrev = {
 with open(employeedata) as csvfile:
     csvreader = csv.reader(csvfile) 
 
-    # Skip the header 
+    # Skip header 
     header = next(csvreader)     
     
-    # Iterate through each row stored in csvreader
+    # Loop through each row in csvreader
     for row in csvreader:
 
-        # Append employee id's into list, no formatting changes needed
+        # Append employee id into list
         employeeid.append(row[0])
 
 
-        # Split full name into first name and last name lists 
-        # No middle names in this data
+        # Split full name into firstname and lastname lists 
         fullname = row[1].split(" ")   
         firstname.append(fullname[0])
         lastname.append(fullname[1])
 
-        # Split date of birth by "-", we have three lists indexed and stored in date_of_birth
-        # Append and format date of birth into d_o_b list
+        # Split birthday by "/", three lists are indexed and stored in birthday
+        # Append and transform birthday into DOB list
         birthday = row[2].split("/")
         DOB.append(birthday[1]+ "/" + birthday[0] + "/" + birthday[2])
          
         
 
         # Split the SSN by "-"
-        # Append and format ssn into ssn_private list 
+        # Append and transform ssn into hiddenssn list 
         ssn = row[3].split("-")
         hiddenssn.append("***-**-" + ssn[2])
 
-        # Match the state list item to a dictionary value, if they match, append dictionary key to list abbrev
+        # Matching state list item to a dictionary value, append dictionary key to list stateabbrev if match
         stateabbrev.append(usstateabbrev[row[4]])
 
 # Set output file path
 converteddata = os.path.join("Python-Challenge", "PyBoss", "converted_data.csv")
-
 converteddata = r'C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homework - Assignment\Python-Challenge\PyBoss\converted_data.csv'
 
+# Initiat each column to be in order
 Rows = [employeeid, firstname, lastname, DOB, hiddenssn, stateabbrev]
 
+# Converting lists into columns into a CSV file
 exportdata = zip_longest(*Rows, fillvalue = '')
 
 with open(converteddata,"w", newline = '', encoding='utf-8') as file:
@@ -123,5 +123,5 @@ with open(converteddata,"w", newline = '', encoding='utf-8') as file:
     # Write the first row (headers)
     csvwriter.writerow(["Employee Id", "First Name", "Last Name", "DOB", "SSN", "State"])
     
-    # Write the second and the rest
+    # Write the the rest or the rows
     csvwriter.writerows(exportdata)
