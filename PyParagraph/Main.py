@@ -26,8 +26,8 @@ print(f"Paragraph Analysis")
 print(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print(f"Approximate Word Count: {words}")
 print(f"Approximate Sentence Count: {sentences}")
-print(f"Average Letter Count: {letterperword}")
-print(f"Average Sentence Length: {wordspersentence}")
+print(f"Average Letter Count (per word): {letterperword}")
+print(f"Average Sentence Length (in words): {wordspersentence}")
 
 
 # Set Output files
@@ -41,5 +41,5 @@ with open(outputfile,"w") as file:
     file.write(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
     file.write(f"Approximate Word Count: {words}\n")
     file.write(f"Approximate Sentence Count: {sentences}\n")
-    file.write(f"Average Letter Count: {letterperword}\n")
-    file.write(f"Average Sentence Length: {wordspersentence}\n")
+    file.write(f"Average Letter Count (per word): {letterperword}\n")
+    file.write(f"Average Sentence Length (in words): {wordspersentence}\n")
