@@ -1,12 +1,14 @@
+# Import Dependencies
 import os,csv
 
+# Set file path
 pybank = os.path.join("PyBank", "Resources", "budget_data.csv")
-
 pybank = r'C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homework - Assignment\Python-Challenge\PyBank\Resources\budget_data.csv'
 
 # Open and read CSV
 with open(pybank) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
+    
     # Skip header
     pybank_header = next(csv_reader)
     
@@ -15,6 +17,7 @@ with open(pybank) as csv_file:
 
     # Reset CSV pointer
     csv_file.seek(0)
+    
     # Skip header
     pybank_header = next(csv_reader)
 
@@ -25,6 +28,7 @@ with open(pybank) as csv_file:
     
     # Reset CSV pointer
     csv_file.seek(0)
+    
     # Skip header
     pybank_header = next(csv_reader)
     
@@ -43,6 +47,7 @@ with open(pybank) as csv_file:
 
     # Reset CSV pointer
     csv_file.seek(0)
+   
     # Skip header
     pybank_header = next(csv_reader)
     monthslist = []
@@ -71,7 +76,7 @@ output_file = r'C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homewo
 
 with open(output_file,"w") as file:
     
-    # Write methods to print to Summary 
+    # Write result into txt file 
     file.write(f"Financial Analysis\n")
     file.write(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
     file.write(f"Total Months: {(totalmonths)}\n")
