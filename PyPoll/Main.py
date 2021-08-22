@@ -3,10 +3,9 @@ import os, csv
 
 # Declare file path
 pypoll = os.path.join("..", "PyPoll", "Resources", "budget_data.csv")
-
 pypoll = r'C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homework - Assignment\Python-Challenge\PyPoll\Resources\election_data.csv'
 
-# Declare Variables 
+# Set variables 
 totalvotes = 0
 khan = 0
 correy = 0
@@ -16,6 +15,7 @@ otooley = 0
 # Open and read CSV
 with open(pypoll) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
+    
     # Skip header
     pybank_header = next(csv_reader) 
 
@@ -45,13 +45,13 @@ votes = [khan, correy, li, otooley]
 candidatesandvotes = dict(zip(candidates,votes))
 key = max(candidatesandvotes, key = candidatesandvotes.get)
 
-# Print a the summary of the analysis
+# Summarizing the analysis
 khanrate = (khan/totalvotes) *100
 correyrate = (correy/totalvotes) * 100
 lirate = (li/totalvotes) * 100
 otooleyrate = (otooley/totalvotes) * 100
 
-# Print the summary table
+# Print the result
 print(f"Election Results")
 print(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print(f"Total Votes: {totalvotes}")
@@ -64,15 +64,13 @@ print(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print(f"Winner: {key}")
 print(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
-# Output files
-# Assign output file location and with the pathlib library
-output_file = os.path.join("..", "Python-Challenge", "PyPoll", "Summary.txt")
+# Set output file
+summaryfile = os.path.join("..", "Python-Challenge", "PyPoll", "Summary.txt")
+summaryfile = r"C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homework - Assignment\Python-Challenge\PyPoll\Summary.txt"
 
-output_file = r"C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homework - Assignment\Python-Challenge\PyPoll\Summary.txt"
+with open(summaryfile,"w") as file:
 
-with open(output_file,"w") as file:
-
-# Write methods to print to Elections_Results_Summary 
+# Write result to txt file 
     file.write(f"Election Results\n")
     file.write(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
     file.write(f"Total Votes: {totalvotes}\n")
