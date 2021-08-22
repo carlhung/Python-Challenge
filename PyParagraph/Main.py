@@ -1,51 +1,45 @@
 # Import Dependencies 
 import os, csv
 
-# Read file, change between "paragraph_1" or "paragraph_2 below"
-txt_file_path = os.path.join("Python-challenge", "PyParagraph", "paragraph_3.txt")
+# Set file path (change between "paragraph_1" or "paragraph_2")
+inputfile = os.path.join("Python-Challenge", "PyParagraph", "raw_data", "test_paragraph.txt")
+inputfile = r'C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homework - Assignment\Python-Challenge\PyParagraph\raw_data\test_paragraph.txt'
 
-# Open file in read mode 
-with open(txt_file_path) as text:
+# Open file and read txt 
+with open(inputfile) as text:
     paragraph = text.read()
 
-# Use a list comprehension to split the the text file into words using space as the delimeter and return the appended array "words"
-# Obtain length of array 
-words = len([w for w in paragraph.split(sep=" ")])
+# Use list comprehension to split the text file into words using space as the delimeter and return the appended array "words" and count length of array
+words = len([word for word in paragraph.split(sep = " ")])
 
-# Use a list comprehension to split the text file into sentences by using ".!?" as the delimeters and return the appended array "sentences"
-# Obtain length of array 
-sentences = len([w for w in paragraph if w is "."]) + len([w for w in paragraph if w is "?"]) +  len([w for w in paragraph if w is "!"])
+# Use list comprehension to split the text file into sentences by using ".", "!" and "?" as the delimeters and return the appended array "sentences" and count length of array
+sentences = len([word for word in paragraph if word is "."]) + len([word for word in paragraph if word is "?"]) +  len([word for word in paragraph if word is "!"])
 
-# Calculate the average letters in words with isalpha method
-letter_avg_per_word = len([c for c in paragraph if c.isalpha()])/words
+# Use isalpha function to calculate the average letters in words 
+letterperword = round(len([c for c in paragraph if c.isalpha()])/words,2)
 
 # Calculate the average words in sentences 
-avg_words_per_sentence = words/sentences
+wordspersentence = round(words/sentences,2)
 
-# Print statements to terminal 
+# Print result
 print(f"Paragraph Analysis")
-print(f"-----------------")
+print(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print(f"Approximate Word Count: {words}")
 print(f"Approximate Sentence Count: {sentences}")
-print(f"Average Letter Count: {letter_avg_per_word}")
-print(f"Average Sentence Length: {avg_words_per_sentence}")
+print(f"Average Letter Count: {letterperword}")
+print(f"Average Sentence Length: {wordspersentence}")
 
 
-# Output files, change output file name if needed 
-output_file = Path("python-challenge", "PyParagraph(Bonus)", "paragraph_3_analysis.txt")
+# Set Output files
+outputfile = os.path.join("Python-Challenge", "PyParagraph", "tp_analysis.txt")
+outputfile = r'C:\Users\franc\OneDrive\Desktop\Data Bootcamp assignments\Homework - Assignment\Python-Challenge\PyParagraph\tp_analysis.txt'
 
-with open(output_file,"w") as file:
+with open(outputfile,"w") as file:
     
 # Write methods to export paragraph analysis
-    file.write("\n")
-    file.write(f"Paragraph Analysis")
-    file.write("\n")
-    file.write(f"-----------------")
-    file.write("\n")
-    file.write(f"Approximate Word Count: {words}")
-    file.write("\n")
-    file.write(f"Approximate Sentence Count: {sentences}")
-    file.write("\n")
-    file.write(f"Average Letter Count: {letter_avg_per_word}")
-    file.write("\n")
-    file.write(f"Average Sentence Length: {avg_words_per_sentence}")
+    file.write(f"Paragraph Analysis\n")
+    file.write(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+    file.write(f"Approximate Word Count: {words}\n")
+    file.write(f"Approximate Sentence Count: {sentences}\n")
+    file.write(f"Average Letter Count: {letterperword}\n")
+    file.write(f"Average Sentence Length: {wordspersentence}\n")
